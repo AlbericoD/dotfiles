@@ -5,6 +5,8 @@ map <C-b> :NERDTreeToggle<CR> " C+b Toggle
 " let g:airline_theme='simple' "Configuration for minimalist theme
 
 call plug#begin()
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'vim-airline/vim-airline-themes' " Theme 'minimalist'
 Plug 'kaicataldo/material.vim'
@@ -30,7 +32,9 @@ Plug 'junegunn/fzf.vim'           " Set up fzf and fzf.vim
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdtree'
-
+Plug 'luochen1990/rainbow'
+"Plug 'SirVer/ultisnips' " Snippets
+"::Plug 'mlaursen/vim-react-snippets' "Snippets
 " All of your Plugins must be added before the following line
 call plug#end()              " required
 filetype plugin indent on    " required
@@ -206,6 +210,35 @@ endif
 "let g:material_theme_style = 'darker'
 "colorscheme material
 "let g:airline_theme = 'material'
+
 syntax enable
 colorscheme dracula
 set background=dark
+
+" set filetypes as typescript.tsx
+"autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
+autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
+autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
+" dark red
+hi tsxTagName guifg=#E06C75
+hi tsxComponentName guifg=#E06C75
+hi tsxCloseComponentName guifg=#E06C75
+
+" orange
+hi tsxCloseString guifg=#F99575
+hi tsxCloseTag guifg=#F99575
+hi tsxCloseTagName guifg=#F99575
+hi tsxAttributeBraces guifg=#F99575
+hi tsxEqual guifg=#F99575
+
+" yellow
+hi tsxAttrib guifg=#F8BD7F cterm=italic
+hi ReactState guifg=#C176A7
+hi ReactProps guifg=#D19A66
+hi ApolloGraphQL guifg=#CB886B
+hi Events ctermfg=204 guifg=#56B6C2
+hi ReduxKeywords ctermfg=204 guifg=#C678DD
+hi ReduxHooksKeywords ctermfg=204 guifg=#C176A7
+hi WebBrowser ctermfg=204 guifg=#56B6C2
+hi ReactLifeCycleMethods ctermfg=204 guifg=#D19A66
+let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
