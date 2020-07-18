@@ -5,6 +5,7 @@ map <C-b> :NERDTreeToggle<CR> " C+b Toggle
 " let g:airline_theme='simple' "Configuration for minimalist theme
 
 call plug#begin()
+Plug 'hugolgst/vimsence'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'dracula/vim', { 'as': 'dracula' }
@@ -242,3 +243,10 @@ hi ReduxHooksKeywords ctermfg=204 guifg=#C176A7
 hi WebBrowser ctermfg=204 guifg=#56B6C2
 hi ReactLifeCycleMethods ctermfg=204 guifg=#D19A66
 let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
+"let g:vimsence_client_id = '439476230543245312'
+"let g:vimsence_small_text = 'NeoVim'
+"let g:vimsence_small_image = 'neovim'
+let g:vimsence_editing_details = 'Editing: {}'
+let g:vimsence_editing_state = 'Working on: {}'
+let g:vimsence_file_explorer_text = 'In NERDTree'
+let g:vimsence_file_explorer_details = 'Looking for files'
