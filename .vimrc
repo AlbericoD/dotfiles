@@ -216,6 +216,10 @@ syntax enable
 colorscheme dracula
 set background=dark
 
+" use tranparency from system theme
+hi Normal guibg=NONE ctermbg=NONE
+
+
 " set filetypes as typescript.tsx
 "autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
 autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
